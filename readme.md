@@ -28,3 +28,10 @@
 - A flight belong to an airplaine but an airplan belongs to multiple flights
 - A city has many airports but an airport belongs to a city
 - One airport can have multiple flights but a flight belong to an airport
+
+
+## Tables
+
+### City -> id, name, createdAt, updatedAt
+### Airport -> id, name, address, cityId, createdAt, updatedAt
+    Relationship -> City has many airports and Airport belongs to a city (one to many)
