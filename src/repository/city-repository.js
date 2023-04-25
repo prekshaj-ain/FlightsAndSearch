@@ -1,35 +1,14 @@
 const { Op } = require("sequelize");
 
 const {City} = require('../models/index');
+const {CrudRepository} = require('.')
 
-class CityRepository{
-    async createCity({ name }){
-        try{
-            const city = await City.create({
-                name
-            })
-            return city;
-        }catch(err){
-            console.log('something went wrong in repository layer');
-            throw {err}
-        }
-    }
-    
-    async deleteCity(cityId){
-        try{
-            await City.destroy({
-                where: {
-                    id:cityId
-                }
-            })
-            return true;
-        }catch(err){
-            console.log('something went wrong in repository layer');
-            throw {err}
-        }
+class CityRepository extends CrudRepository{
+    constructor(){
+        super(City);
     }
 
-    async updateCity(cityId, data){
+    async update(cityId, data){
         try{
             const city = await City.findByPk(cityId);
             city.name = data.name
@@ -41,17 +20,8 @@ class CityRepository{
         }
     }
     
-    async getCity(cityId){
-        try{
-            const city = await City.findByPk(cityId);
-            return city;
-        }catch(err){
-            console.log('something went wrong in repository layer');
-            throw {err};
-        }
-    }
 
-    async getAllCities(filter){ //filter can also be empty
+    async getAll(filter){ //filter can also be empty
         try{
             if(filter.name){
                 const city = await City.findAll({
