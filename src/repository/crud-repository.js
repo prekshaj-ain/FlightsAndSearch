@@ -34,7 +34,7 @@ class CrudRepository{
             throw {err};
         }
     }
-    async get(){
+    async get(modelId){
         try{
             const result = await this.model.findByPk(modelId);
             return result;

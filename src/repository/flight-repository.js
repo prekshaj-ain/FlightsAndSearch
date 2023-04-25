@@ -1,10 +1,13 @@
 const { Op } = require('sequelize');
 
 const { Flight } = require('../models/index');
-const {CrudRepository} = require('.');
+const CrudRepository = require('./crud-repository');
 
 class FlightRepository extends CrudRepository{
 
+    constructor(){
+        super(Flight)
+    }
     #createFilter(data){
         let filter = {};
         let priceFilter = [];
@@ -24,9 +27,6 @@ class FlightRepository extends CrudRepository{
         return filter;
     }
 
-    constructor(){
-        super(Flight)
-    }
 
     async getAll(filter){
         try{
