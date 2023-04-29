@@ -27,6 +27,15 @@ class FlightRepository extends CrudRepository{
         return filter;
     }
 
+    async get(flightId){
+        try{
+            const flight = await Flight.findByPk(flightId);
+            return flight;
+        }catch(err){
+            console.log('something went wrong in repository layer');
+            throw err
+        }
+    }
 
     async getAll(filter){
         try{
@@ -37,7 +46,7 @@ class FlightRepository extends CrudRepository{
             return flights;
         }catch(err){
             console.log('something went wrong in repository layer');
-            throw {err}
+            throw err
         }
     }
 }

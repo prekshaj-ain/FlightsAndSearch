@@ -20,7 +20,17 @@ class FlightService extends CrudService{
             return flight;
         }catch(err){
             console.log('something went wrong in service layer');
-            throw {err};
+            throw err;
+        }
+    }
+
+    async get(flightId){
+        try{
+            const flight = await this.flightRepository.get(flightId);
+            return flight;
+        }catch(err){
+            console.log('something went wrong in service layer');
+            throw err;
         }
     }
 }
