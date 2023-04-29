@@ -13,7 +13,6 @@ const setupAndStartServer = async ()=>{
     app.use(bodyParser.urlencoded({extended:true}))
 
     app.use('/api',ApiRoutes);
-    const PORT = 3000;
     app.listen(PORT,async ()=>{
         console.log(`server started at ${PORT}`);
         if(process.env.SYNC_DB){
