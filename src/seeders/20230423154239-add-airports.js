@@ -14,13 +14,6 @@ module.exports = {
     */
    await queryInterface.bulkInsert('Airports',[
     {
-      name: 'Devi Ahilya Bai Holkar Airport',
-      address: 'Indore, Madhya Pradesh, India',
-      cityId: 2,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
       name: 'Chhatrapati Shivaji Maharaj International Airport',
       address: ' Sahar, Andheri East. Mumbai, Maharashtra 400029, INDIA',
       cityId: 3,

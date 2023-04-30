@@ -6,8 +6,9 @@ const CrudRepository = require('./crud-repository');
 class FlightRepository extends CrudRepository{
 
     constructor(){
-        super(Flight)
+        super(Flight);
     }
+
     #createFilter(data){
         let filter = {};
         let priceFilter = [];

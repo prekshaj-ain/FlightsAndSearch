@@ -15,8 +15,8 @@ class FlightService extends CrudService{
             if(!compareTime(data.arrivalTime, data.departureTime)){
                 throw {error: 'Arrival time cannot be less than departureTime'};
             }
-            const airplane = await this.airplaneRepository.getAirplane(data.airplaneId)
-            const flight = await this.flightRepository.createFlight({...data, totalSeats:airplane.capacity});
+            const airplane = await this.airplaneRepository.get(data.airplaneId)
+            const flight = await this.flightRepository.create({...data, totalSeats:airplane.capacity});
             return flight;
         }catch(err){
             console.log('something went wrong in service layer');
