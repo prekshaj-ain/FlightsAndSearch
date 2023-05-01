@@ -51,7 +51,7 @@ class CrudRepository{
                     id: modelId
                 }
             });
-            return result;
+            return true;
         }catch(err){
             console.log('Something went wrong in crud repository');
             throw {err};

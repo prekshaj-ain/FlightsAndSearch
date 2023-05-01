@@ -50,5 +50,6 @@ class FlightRepository extends CrudRepository{
             throw err
         }
     }
+
 }
  module.exports = FlightRepository;
